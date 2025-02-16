@@ -15,4 +15,4 @@ persona.edad = 42
 persona.estatura =193 
 print(persona.nombre) 
 print("nombre: ",persona.nombre," edad: ",persona.edad, " cms: ", persona.estatura)
-       
+print("nombre: ",persona.nombre," edad: ",persona.edad, " cms: ", persona.estatura)
