@@ -1,0 +1,6 @@
+Paso 1 crear archivo de ingestiones.py
+Paso 2 crear la clase "Ingestiones"
+Paso 3 crear el constructor de la clase
+Paso 4 crear un archivo json
+Paso 5 crear una funcion que lea el json
+Paso 5 crear una funcion que escriba el json
