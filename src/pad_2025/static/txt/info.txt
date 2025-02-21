@@ -1,0 +1,4 @@
+¿Qué tiene de especial el formato TXT?
+Como hemos mencionado antes, un archivo TXT es un archivo de texto sin formato; esto significa que no necesita programas especiales para abrir y crear archivos TXT. En cambio, sólo necesitas un programa de procesamiento de textos si quieres trabajar con el formato TXT.  Estos programas suelen ser gratuitos e incluso vienen preinstalados de serie en muchos dispositivos.
+
+Los archivos TXT son ampliamente utilizados por su compatibilidad universal con sistemas operativos y programas de edición de texto, lo que los hace ideales para notas rápidas, instrucciones, o incluso como borradores para contenidos más complejos.
