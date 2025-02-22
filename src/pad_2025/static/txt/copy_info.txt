@@ -1,2 +1,0 @@
-Abrir un archivo TXT en Windows:
-Si deseas abrir un fichero TXT en Windows, puedes utilizar el Bloc de notas de Windows. Este editor de texto está preinstalado en la mayoría de las versiones del sistema operativo y también se puede utilizar de forma gratuita. Programas alternativos: WordPad, Microsoft Word o Notepad+
