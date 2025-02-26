@@ -6,9 +6,10 @@ setup(
     author="Luz Andrea Torres Usme",
     author_email="luz.torres@est.iudigital.edu.co",
     description="",
-    py_modules=["actividad_1"],
+    py_modules=["Entrega_actividad_1"],
     install_requires=[
         "pandas",
+        "requests"
         "matplotlib"
     ]
     
