@@ -9,7 +9,7 @@ setup(
     py_modules=["Entrega_actividad_1"],
     install_requires=[
         "pandas",
-        "requests"
+        "requests",
         "matplotlib"
     ]
     
