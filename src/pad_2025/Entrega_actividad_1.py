@@ -8,8 +8,9 @@ class Entrega_actividad_1():
             self.ruta_static="src/pad_2025/static/"
             self.ruta_actual = str(Path.cwd())
             self.ruta_static="{}/src/pad_2025/static/".format(self.ruta_actual)
-            directorio = os.path.dirname(self.ruta_actual)
-            if not os.path.exists(self.ruta_static):
+            self.ruta_json="{}/src/pad_2025/static/json/".format(self.ruta_actual)
+            directorio = os.path.dirname(self.ruta_static)
+            if not os.path.exists(self.ruta_json):
                    os.makedirs(directorio, exists_ok=True)
 
 
