@@ -1,9 +1,17 @@
 import json
 import requests
+from pathlib import Path 
+import os
 
 class Entrega_actividad_1():
         def __init__(self):
             self.ruta_static="src/pad_2025/static/"
+            self.ruta_actual = str(Path.cwd())
+            self.ruta_static="{}/src/pad_2025/static/".format(self.ruta_actual)
+            directorio = os.path.dirname(self.ruta_actual)
+            if not os.path.exists(self.ruta_static):
+                   os.makedirs(directorio, exists_ok=True)
+
 
 #leer api
         def leer_api(self,url):
