@@ -6,10 +6,16 @@ setup(
     author="Luz Andrea Torres Usme",
     author_email="luz.torres@est.iudigital.edu.co",
     description="",
-    py_modules=["Entrega_actividad_1"],
+    py_modules=["Entrega_actividad_1","Actividad_2"],
     install_requires=[
         "pandas",
         "requests",
+        "openpyxl",
+        "seaborn",
+        "kagglehub",
+        "zipfile",
+        "numpy",
+        "pathlib",
         "matplotlib"
     ]
     
