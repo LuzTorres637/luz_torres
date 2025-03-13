@@ -1,21 +1,26 @@
 import pandas as pd
 import os
 import zipfile
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import numpy as np
 import openpyxl
-from pathlib import Path 
+from pathlib import Path
+from scipy.stats import gaussian_kde 
+
 
 
 class Actividad_2:
     def __init__(self):
-        #self.ruta_Actividad_2="src/pad_2025/Actividad_2/"
-        #self.ruta_actual = str(Path.cwd())
-        #self.ruta_Actividad_2="{}/src/pad_2025/Actividad_2/".format(self.ruta_actual)
-        #directorio = os.path.dirname(self.ruta_Actividad_2)
-        #if not os.path.exists(self.ruta_xlsx):
-                #os.makedirs(directorio, exists_ok=True)
-        datos= [(1,0),(2,0)]
+        self.ruta_Actividad_2="src/pad_2025/Actividad_2/"
+        self.ruta_actual = str(Path.cwd())
+        self.ruta_Actividad_2="{}/src/pad_2025/Actividad_2/".format(self.ruta_actual)
+        directorio = os.path.dirname(self.ruta_Actividad_2)
+        if not os.path.exists(self.ruta_actual):
+                os.makedirs(directorio, exists_ok=True)
+        #print("
+        
+        #datos = ["# ejercicio": list(range(1,21)),"valor": []]   
+        datos= [(0,1)]
         self.df= pd.DataFrame( data=datos, columns=["# ejercicio", "valor"])  
 
 #Introducción y cálculos con los arrays de NumPy
@@ -23,9 +28,10 @@ class Actividad_2:
     #def punto_1(self):
         #array_10_29 = np.arange(10, 30)
         #self.df.iloc[1,1]= str(array_10_29)
+        #self.df.loc[0,"valor"]= str(self.ruta_Actividad_2)
         #self.df["# ejercicio"] = 1
-        #self.df["valor"]= [array_10_29] * len(self.df)
-        #self.df.to_csv("Actividad_2.csv", index= "false")
+        #self.df["valor"]= [array_10_29] 
+        
 #ingestion = Actividad_2()
 #ingestion.punto_1()
 #print("array_10_29:")
@@ -144,18 +150,249 @@ class Actividad_2:
 #print("matriz_3x3, matriz_invertida:")
 
 #Punto_10_Dado un array de números aleatorios de tamaño 10, selecciona y muestra solo aquellos que sean mayores a 0.5.
-    def punto_10(self):
-        array_aleatorio = np.random.rand(10)
-        elementos_mayores = array_aleatorio[array_aleatorio > 0.5]
-        self.df["# ejercicio"] = 10
-        self.df["valor"] = [array_aleatorio, elementos_mayores]
-        self.df.to_csv("Actividad_2.csv", index=False)      
+    #def punto_10(self):
+        #array_aleatorio = np.random.rand(10)
+        #elementos_mayores = array_aleatorio[array_aleatorio > 0.5]
+        #self.df["# ejercicio"] = 10
+        #self.df["valor"] = [array_aleatorio, elementos_mayores]
+        #self.df.to_csv("Actividad_2.csv", index=False)      
+#ingestion = Actividad_2()
+#ingestion.punto_10()
+#print("array_aleatorio, elementos_mayores:")
+
+#Punto_11_Genera dos arrays de tamaño 100 con números aleatorios y crea un gráfico de dispersión.
+    #def __init__(self):
+        #self.ruta_Actividad_2="src/pad_2025/Actividad_2/"
+        #self.ruta_actual = str(Path.cwd())
+        #self.ruta_Actividad_2="{}/src/pad_2025/Actividad_2/".format(self.ruta_actual)
+        #directorio = os.path.dirname(self.ruta_Actividad_2)
+        #if not os.path.exists(self.ruta_actual):
+                #os.makedirs(directorio, exists_ok=True)
+        #datos= [(1,0), (0,1)]
+        #self.df= pd.DataFrame( data=datos, columns=["# ejercicio", "valor"])  
+   #def punto_11(self):
+        #array_1 = np.random.rand(100)
+        #array_2 = np.random.rand(100)
+        #plt.figure(figsize=(8, 6))  
+        #plt.scatter(array_1, array_2)
+        #plt.xlabel("Eje X")
+        #plt.ylabel("Eje Y")
+        #plt.title("Gráfico de dispersión de números aleatorios")
+        #plt.savefig(self.ruta_Actividad_2 + "punto_11.png")
+        #plt.show()     
+#ingestion = Actividad_2()
+#ingestion.punto_11()
+#print("plt.show:")
+
+#Punto_12_Genera un gráfico de dispersión las variables 𝑥 y 𝑦 = 𝑠𝑖𝑛(𝑥)+ ruido Gaussiano. Donde x es un array con númereos entre -2𝜋 𝑦 2𝜋. Grafica también los puntos 𝑦 = 𝑠𝑖𝑛(𝑥) en el mismo plot.
+    #def punto_12(self):
+        #x = np.linspace(-2 * np.pi, 2 * np.pi, 100)
+        #y_sin = np.sin(x)
+        #ruido = np.random.normal(0, 0.3, 100)
+        #y_ruido = y_sin + ruido
+        #plt.figure(figsize=(10, 6))
+        #plt.scatter(x, y_ruido, label='sin(x) + ruido', s=15)
+        #plt.plot(x, y_sin, color='red', label='sin(x)')
+        #plt.xlabel('x')
+        #plt.ylabel('y')
+        #plt.title('Gráfico de sin(x) con ruido')
+        #plt.legend()
+        #plt.savefig(self.ruta_Actividad_2 + "punto_12.png")
+        #plt.grid(True)
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_12()
+#print("plt.show:")
+
+#Punto_13_Utiliza la función np.meshgrid para crear una cuadrícula y luego aplica la función z = np.cos(x) + np.sin(y) para generar y mostrar un gráfico de contorno.
+    #def punto_13(self):
+        #x = np.linspace(-5, 5, 100)
+        #y = np.linspace(-5, 5, 100)
+        #X, Y = np.meshgrid(x, y)
+        #Z = np.cos(X) + np.sin(Y)
+        #plt.figure(figsize=(8, 6))
+        #contour = plt.contour(X, Y, Z, levels=20, cmap='viridis')  
+        #plt.clabel(contour, inline=True, fontsize=8)
+       # plt.xlabel('x')
+        #plt.ylabel('y')
+        #plt.title('Gráfico de contorno de z = cos(x) + sin(y)')
+        #plt.colorbar() # Añadir barra de color
+        #plt.grid(True)
+        #plt.savefig(self.ruta_Actividad_2 + "punto_13.png")
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_13()
+#print("plt.show:")
+
+#Punto_14_Crea un gráfico de dispersión con 1000 puntos aleatorios y utiliza la densidad de estos puntos para ajustar el color de cada punto.
+    #def punto_14(self):
+        #x = np.random.normal(size=1000)
+        #y = np.random.normal(size=1000)
+        #xy = np.vstack([x, y])
+        #z = gaussian_kde(xy)(xy)
+        #idx = z.argsort()
+        #x, y, z = x[idx], y[idx], z[idx]
+        #plt.figure(figsize=(8, 6))
+        #plt.scatter(x, y, c=z, s=50, cmap='viridis')
+        #plt.xlabel('x')
+        #plt.ylabel('y')
+        #plt.title('Gráfico de dispersión con densidad de color')
+        #plt.savefig(self.ruta_Actividad_2 + "punto_14.png")
+        #plt.colorbar()
+        #plt.grid(True)
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_14()
+#print("plt.show:")
+
+#Punto_15_A partir de la misma función del ejercicio 12, genera un gráfico de contorno lleno.
+    #def punto_15(self):
+       # x = np.linspace(-2 * np.pi, 2 * np.pi, 100)
+       # ruido = np.random.normal(0, 0.3, 100)  
+        #y = np.sin(x) + ruido
+        #X, Y = np.meshgrid(x, y)
+        #Z = np.sin(X) + np.random.normal(0, 0.3, X.shape)      
+        #plt.figure(figsize=(8, 6))
+        #contourf = plt.contourf(X, Y, Z, levels=20, cmap='viridis')
+       #plt.xlabel('x')
+        #plt.ylabel('y')
+        #plt.title('Gráfico de contorno lleno de z = cos(x) + sin(y)')
+        #plt.colorbar(contourf)
+        #plt.grid(True)
+        #plt.savefig(self.ruta_Actividad_2 + "punto_15.png")
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_15()
+#print("plt.show:")
+
+#Punto_16_Añade etiquetas para el eje X (‘Eje X’), eje Y (‘Eje Y’) y un título (‘Gráfico de Dispersión’) a tu gráfico de dispersión del ejercicio 12 y crea leyendas para cada gráfico usando código LaTex.
+    #def punto_16(self):
+        #x, y = punto_12()
+        #plt.figure(figsize=(8, 6))
+        #plt.scatter(x, y_ruido, label=r'$\sin(x) + \mathrm{ruido}$', s=15)
+        #plt.plot(x, y_sin, color='red', label=r'$\sin(x)$')
+        #plt.xlabel(r'$\mathrm{Eje\ X}$')
+        #plt.ylabel(r'$\mathrm{Eje\ Y}$')
+        #plt.title(r'$\mathrm{Gráfico\ de\ Dispersión}$')
+        #plt.legend()
+        #plt.grid(True)
+        #plt.savefig(self.ruta_Actividad_2 + "punto_16.png")
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_16()
+#print("plt.show:")
+
+#Punto_17_Crea un histograma a partir de un array de 1000 números aleatorios generados con una distribución normal.
+    #def punto_17(self):
+        #data = np.random.normal(size=1000)
+        #plt.figure(figsize=(8, 6))
+        #plt.hist(data, bins=30, edgecolor='black')
+        #plt.xlabel('Valor')
+        #plt.ylabel('Frecuencia')
+        #plt.title('Histograma de distribución normal')
+        #plt.grid(True)
+        #plt.savefig(self.ruta_Actividad_2 + "punto_17.png")
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_17()
+#print("plt.show:")
+
+#Punto_18_Genera dos sets de datos con distribuciones normales diferentes y muéstralos en el mismo histograma.
+    #def punto_18(self):
+        #data1 = np.random.normal(loc=0, scale=1, size=1000)  
+        #data2 = np.random.normal(loc=3, scale=1.5, size=1000)
+        #plt.figure(figsize=(10, 6))
+        #plt.hist(data1, bins=30, alpha=0.5, label='Distribución 1')
+        #plt.hist(data2, bins=30, alpha=0.5, label='Distribución 2')
+        #plt.xlabel('Valor')
+        #plt.ylabel('Frecuencia')
+        #plt.title('Histograma de dos distribuciones normales')
+        #plt.legend()
+        #plt.grid(True)
+        #plt.savefig(self.ruta_Actividad_2 + "punto_18.png")
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_18()
+#print("plt.show:")
+
+#Punto_19_Experimenta con diferentes valores de bins (por ejemplo, 10, 30, 50) en un histograma y observa cómo cambia la representación.
+    #def punto_19(self):
+        #data = np.random.normal(size=1000)
+        #bins_values = [10, 30, 50]
+        #plt.figure(figsize=(12, 6))
+        #for i, bins in enumerate(bins_values):
+            #plt.subplot(1, 3, i + 1)  
+           # plt.hist(data, bins=bins, edgecolor='black')
+            #plt.xlabel('Valor')
+            #plt.ylabel('Frecuencia')
+            #plt.title(f'Histograma con {bins} bins')
+            #plt.grid(True)
+        #plt.savefig(self.ruta_Actividad_2 + "punto_19.png")
+        #plt.tight_layout()  
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_19()
+#print("plt.show:")
+
+#Punto_20_Añade una línea vertical que indique la media de los datos en el histograma.
+    #def punto_20(self):
+        #data = np.random.normal(size=1000)        
+       # media = np.mean(data)
+        #plt.figure(figsize=(8, 6))
+        #plt.hist(data, bins=30, edgecolor='black')
+        #plt.axvline(media, color='red', linestyle='dashed', linewidth=2, label=f'Media: {media:.2f}')
+        #plt.xlabel('Valor')
+        #plt.ylabel('Frecuencia')
+        #plt.title('Histograma con media')
+        #plt.legend()
+        #plt.savefig(self.ruta_Actividad_2 + "punto_20.png")
+        #plt.grid(True)
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_20()
+#print("plt.show:")    
+
+#Punto_21_Crea histogramas superpuestos para los dos sets de datos del ejercicio 17, usando colores y transparencias diferentes para distinguirlos.
+    def punto_21(self):
+        data1 = np.random.normal(loc=0, scale=1, size=1000)  # Media 0, desviación estándar 1
+        data2 = np.random.normal(loc=3, scale=1.5, size=1000)  # Media 3, desviación estándar 1.5
+        plt.figure(figsize=(10, 6))
+        plt.hist(data1, bins=30, alpha=0.5, color='skyblue', label='Distribución 1')
+        plt.hist(data2, bins=30, alpha=0.5, color='salmon', label='Distribución 2')
+        plt.xlabel('Valor')
+        plt.ylabel('Frecuencia')
+        plt.title('Histogramas superpuestos de dos distribuciones normales')
+        plt.legend()
+        plt.savefig(self.ruta_Actividad_2 + "punto_21.png")
+        plt.grid(True)
+        plt.show()
 ingestion = Actividad_2()
-ingestion.punto_10()
-print("array_aleatorio, elementos_mayores:")
+ingestion.punto_21()
+print("plt.show:")   
+
+    #self.punto_1()
+    #self.punto_2()
+    #self.punto_3()
+    #self.punto_4()
+    #self.punto_5()
+    #self.punto_6()
+    #self.punto_7()
+    #self.punto_8()
+    #self.punto_9()
+    #self.punto_10()
+    #self.punto_11()
+    #self.punto_12()
+    #self.punto_13()
+    #self.punto_14()
+    #self.punto_15()
+    #self.punto_16()
+    #self.punto_17()
+    #self.punto_18()
+    #self.punto_19()
+    #self.punto_20()
+    #self.punto_21()
 
 
-
-
-
-    
+#self.df.to_csv("Actividad_2.csv", index= "false")
+#ene = Actividad_2()
+#ene.ejecutar()
