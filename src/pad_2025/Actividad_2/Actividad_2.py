@@ -16,69 +16,53 @@ class Actividad_2:
         self.ruta_Actividad_2="{}/src/pad_2025/Actividad_2/".format(self.ruta_actual)
         directorio = os.path.dirname(self.ruta_Actividad_2)
         if not os.path.exists(self.ruta_actual):
-                os.makedirs(directorio, exists_ok=True)
-        #print("
+                os.makedirs(directorio, exists_ok=True) 
+        print(self.ruta_actual) 
         
-        #datos = ["# ejercicio": list(range(1,21)),"valor": []]   
-        datos= [(0,1)]
+        datos = {"# ejercicio": list(range(1,21)),
+            "valor": [x*0 for x in range (1,21)]
+        }            
         self.df= pd.DataFrame( data=datos, columns=["# ejercicio", "valor"])  
 
-#Introducción y cálculos con los arrays de NumPy
 #Punto_1_Genera un array de NumPy con valores desde 10 hasta 29.
-    #def punto_1(self):
-        #array_10_29 = np.arange(10, 30)
-        #self.df.iloc[1,1]= str(array_10_29)
-        #self.df.loc[0,"valor"]= str(self.ruta_Actividad_2)
-        #self.df["# ejercicio"] = 1
-        #self.df["valor"]= [array_10_29] 
+    def punto_1(self):
+        array_10_29 = np.arange(10, 30)
+        self.df.iloc[0,1]= str (array_10_29)
+        self.df["# ejercicio"] = 1
+        self.df.loc[0,"valor"]= str (array_10_29)
         
-#ingestion = Actividad_2()
-#ingestion.punto_1()
-#print("array_10_29:")
-
 #Punto_2_Calcula la suma de todos los elementos en un array de NumPy de tamaño 10x10, lleno de unos.
-    #def punto_2(self):
-        #array_unos = np.ones((10, 10))
-        #suma_total = np.sum(array_unos)
-        #self.df["# ejercicio"] = 2
-        #self.df["valor"] = [array_unos, suma_total]
-        #self.df.to_csv("Actividad_2.csv", index=False)
-#ingestion = Actividad_2()
-#ingestion.punto_2()
-#print("array_unos, suma_total:")
-
+    def punto_2(self):
+        array_unos = np.ones((10, 10))
+        suma_total = np.sum(array_unos)
+        self.df["# ejercicio"] = 2
+        self.df.loc[1,"valor"]= str(array_unos)
+        self.df.loc[2,"valor"]= str(suma_total)
+            
 #Punto_3_Dados dos arrays de tamaño 5, llenos de números aleatorios desde 1 hasta 10, realiza un producto elemento a elemento.
-    #def punto_3(self):
-        #array1 = np.random.randint(1, 10, 5)  
-        #array2 = np.random.randint(1, 10, 5)
-        #producto_elemento_a_elemento = array1 * array2
-        #self.df["# ejercicio"] = 3
-        #self.df["valor"] = [array1, array2, producto_elemento_a_elemento]
-        #self.df.to_csv("Actividad_2.csv", index=False)
-#ingestion = Actividad_2()
-#ingestion.punto_3()
-#print("array1, array2, producto_elemento_a_elemento:")
-
+    def punto_3(self):
+        array1 = np.random.randint(1, 10, 5)  
+        array2 = np.random.randint(1, 10, 5)
+        producto_elemento_a_elemento = array1 * array2
+        self.df["# ejercicio"] = 3
+        self.df.loc[3, "valor"] = str(producto_elemento_a_elemento.tolist())
+            
 #Punto_4_Crea una matriz de 4x4, donde cada elemento es igual a i+j (con i y j siendo el índice de fila y columna, respectivamente) y calcula su inversa.
-    #def punto_4(self):
-        #matriz = np.zeros((4, 4), dtype=int)
-        #for i in range(4):
-            #for j in range(4):
-                #matriz[i, j] = i + j
-            #self.df["# ejercicio"] = 4
-            #self.df["valor"] = [matriz]
-            #self.df.to_csv("Actividad_2.csv", index=False)
-     # Calcular la inversa de la matriz
-        #try:
-            #matriz_inversa = np.linalg.inv(matriz)
-            #self.df["# ejercicio"] = 4
-            #self.df["valor"] = [matriz, matriz_inversa ]
-            #self.df.to_csv("Actividad_2.csv", index=False)
-        #except np.linalg.LinAlgError:
-            #print("La matriz no tiene inversa (es singular).")    
-#ingestion = Actividad_2()
-#ingestion.punto_4()
-#print("matriz, matriz_inversa:")
+    def punto_4(self):
+        matriz = np.zeros((4, 4), dtype=int)
+        for i in range(4):
+            for j in range(4):
+                matriz[i, j] = i + j
+            self.df["# ejercicio"] = 4
+            self.df.loc[4,"valor"] = [matriz]
+    # Calcular la inversa de la matriz
+        try:
+            matriz_inversa = np.linalg.inv(matriz)
+            self.df["# ejercicio"] = 4
+            self.df.loc[5,"valor"] = [matriz, matriz_inversa ]
+        except np.linalg.LinAlgError:
+            print("La matriz no tiene inversa (es singular).")    
+          
 
 #Punto_5_Encuentra los valores máximo y mínimo en un array de 100 elementos aleatorios y muestra sus índices.
     #def punto_5(self):
@@ -353,46 +337,46 @@ class Actividad_2:
 #print("plt.show:")    
 
 #Punto_21_Crea histogramas superpuestos para los dos sets de datos del ejercicio 17, usando colores y transparencias diferentes para distinguirlos.
-    def punto_21(self):
-        data1 = np.random.normal(loc=0, scale=1, size=1000)  # Media 0, desviación estándar 1
-        data2 = np.random.normal(loc=3, scale=1.5, size=1000)  # Media 3, desviación estándar 1.5
-        plt.figure(figsize=(10, 6))
-        plt.hist(data1, bins=30, alpha=0.5, color='skyblue', label='Distribución 1')
-        plt.hist(data2, bins=30, alpha=0.5, color='salmon', label='Distribución 2')
-        plt.xlabel('Valor')
-        plt.ylabel('Frecuencia')
-        plt.title('Histogramas superpuestos de dos distribuciones normales')
-        plt.legend()
-        plt.savefig(self.ruta_Actividad_2 + "punto_21.png")
-        plt.grid(True)
-        plt.show()
-ingestion = Actividad_2()
-ingestion.punto_21()
-print("plt.show:")   
+    #def punto_21(self):
+        #data1 = np.random.normal(loc=0, scale=1, size=1000)  # Media 0, desviación estándar 1
+        #data2 = np.random.normal(loc=3, scale=1.5, size=1000)  # Media 3, desviación estándar 1.5
+        #plt.figure(figsize=(10, 6))
+        #plt.hist(data1, bins=30, alpha=0.5, color='skyblue', label='Distribución 1')
+        #plt.hist(data2, bins=30, alpha=0.5, color='salmon', label='Distribución 2')
+        #plt.xlabel('Valor')
+        #plt.ylabel('Frecuencia')
+        #plt.title('Histogramas superpuestos de dos distribuciones normales')
+        #plt.legend()
+        #plt.savefig(self.ruta_Actividad_2 + "punto_21.png")
+        #plt.grid(True)
+        #plt.show()
+#ingestion = Actividad_2()
+#ingestion.punto_21()
+#print("plt.show:")   
 
-    #self.punto_1()
-    #self.punto_2()
-    #self.punto_3()
-    #self.punto_4()
-    #self.punto_5()
-    #self.punto_6()
-    #self.punto_7()
-    #self.punto_8()
-    #self.punto_9()
-    #self.punto_10()
-    #self.punto_11()
-    #self.punto_12()
-    #self.punto_13()
-    #self.punto_14()
-    #self.punto_15()
-    #self.punto_16()
-    #self.punto_17()
-    #self.punto_18()
-    #self.punto_19()
-    #self.punto_20()
-    #self.punto_21()
+    def ejecutar(self):
+        #self.punto_1()
+        #self.punto_2()
+        #self.punto_3()
+        self.punto_4()
+        #self.punto_5()
+        #self.punto_6()
+        #self.punto_7()
+        #self.punto_8()
+        #self.punto_9()
+        #self.punto_10()
+        #self.punto_11()
+        #self.punto_12()
+        #self.punto_13()
+        #self.punto_14()
+        #self.punto_15()
+        #self.punto_16()
+        #self.punto_17()
+        #self.punto_18()
+        #self.punto_19()
+        #self.punto_20()
+        #self.punto_21()
+        self.df.to_csv("Actividad_2.csv", index= "false")
 
-
-#self.df.to_csv("Actividad_2.csv", index= "false")
-#ene = Actividad_2()
-#ene.ejecutar()
+ene = Actividad_2()
+ene.ejecutar()
