@@ -4,7 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
-from scipy.stats import gaussian_kde 
+ 
 
 
 class Actividad_2:
