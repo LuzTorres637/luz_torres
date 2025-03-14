@@ -56,7 +56,7 @@ class Actividad_2:
             #self.df["valor"] = [matriz, matriz_inversa ]
             self.df.loc[3,"valor"] = f"{matriz}, {matriz_inversa},"
         except np.linalg.LinAlgError:
-            self.df.loc[3,"valor"] = f"{matriz}, {"La matriz no tiene inversa (es singular)"}"
+            self.df.loc[3,"valor"] = f"{matriz}, {'La matriz no tiene inversa (es singular)'}"
 
 #Encuentra los valores máximo y mínimo en un array de 100 elementos aleatorios y muestra sus índices.
     def punto_5(self):
