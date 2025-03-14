@@ -34,7 +34,7 @@ jobs:
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update Test
+          commit_message: actividad_final_2
           commit_user_name: Luz Andrea Torres Usme [GitHub Actions]
           commit_user_email: luz.torres@est.iudigital.edu.co
           commit_author: Luz Andrea Torres Usme <luz.torres@est.iudigital.edu.co>

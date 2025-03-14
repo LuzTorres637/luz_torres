@@ -9,9 +9,9 @@ from pathlib import Path
 
 class Actividad_2:
     def __init__(self):
-        self.ruta_actividad_final_2="src/pad_2025/actividad_final_2/"
+        self.ruta_actividad_final_2="src/pad_2025/static/actividad_final_2/"
         self.ruta_actual = str(Path.cwd())
-        self.ruta_actividad_final_2="{}/src/pad_2025/actividad_final_2/".format(self.ruta_actual)
+        self.ruta_actividad_final_2="{}/src/pad_2025/static/actividad_final_2/".format(self.ruta_actual)
         directorio = os.path.dirname(self.ruta_actividad_final_2)
         if not os.path.exists(self.ruta_actual):
                 os.makedirs(directorio, exists_ok=True) 
