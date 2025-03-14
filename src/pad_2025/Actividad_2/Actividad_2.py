@@ -175,7 +175,7 @@ class Actividad_2:
         #ruido = np.random.normal(0, 0.3, 100)
         #y_ruido = y_sin + ruido
         #plt.figure(figsize=(10, 6))
-        #plt.scatter(x, y_ruido, label='sin(x) + ruido', s=15)
+        #plt.scatter(x, y_ruido, label='sin(x) + ruido', s=15) (x, y, label=r"$y = \sin(x) + \text{ruido gaussiano}$", s=15)
         #plt.plot(x, y_sin, color='red', label='sin(x)')
         #plt.xlabel('x')
         #plt.ylabel('y')
