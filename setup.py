@@ -13,8 +13,7 @@ setup(
         "openpyxl",
         "seaborn",
         "kagglehub",
-        "zipfile",
-        "numpy",
+          "numpy",
         "pathlib",
         "matplotlib"
     ]
