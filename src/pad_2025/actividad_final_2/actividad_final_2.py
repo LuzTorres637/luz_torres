@@ -27,8 +27,9 @@ class Actividad_2:
 
 #Genera un array de NumPy con valores desde 10 hasta 29.
     def punto_1(self, inf=10, sup=29):   
-        array_10_29 = np.arange(inf,sup) 
-        self.df.loc[0,"valor"] = f"{array_10_29}"
+        array_10_29 = np.arange(inf,sup)
+        self.df["valor"] =self.df["valor"].astype(object) 
+        self.df.loc[0,"valor"] = str(array_10_29)
 
 #Calcula la suma de todos los elementos en un array de NumPy de tamaño 10x10, lleno de unos.    
     def punto_2(self):
