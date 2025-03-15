@@ -238,7 +238,7 @@ class Actividad_2:
         self.punto_9()
         self.punto_10()
         self.punto_11()
-        self.punto_12()
+        #self.punto_12()
         self.punto_13()
         self.punto_14()
         self.punto_15()
