@@ -1,11 +1,11 @@
 # ejercicio,valor
 1,0
 2,0
-3,"Cuchara     3
-Tenedor     2
-Cuchillo    4
-Plato       5
-Name: Cocina, dtype: int64"
+3,"Cuchara     3 unidades
+Tenedor     2 unidades
+Cuchillo    4 unidades
+Plato       5 unidades
+Name: Cocina, dtype: object"
 4,0
 5,0
 6,0

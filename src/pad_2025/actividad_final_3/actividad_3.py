@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
+from kagglehub import download_kaggle_dataset
  
 
 
@@ -15,7 +16,6 @@ class Actividad_3:
         directorio = os.path.dirname(self.ruta_actividad_final_3)
         if not os.path.exists(self.ruta_actual):
                 os.makedirs(directorio, exists_ok=True) 
-        #self.ruta_img = "{}img/".format(self.ruta_actividad_final_3)
         self.ruta_csv = "{}csv/".format(self.ruta_actividad_final_3)
         print(self.ruta_actual) 
         
@@ -47,33 +47,41 @@ class Actividad_3:
 
     def punto_3(self):
         utensilios = pd.Series(
-             [3,2,4,5], 
-             index= ["Cuchara","Tenedor","Cuchillo","Plato"], 
-             name="Cocina" 
+             ["3 unidades","2 unidades","4 unidades","5 unidades"], 
+             index= ["Cuchara","Tenedor","Cuchillo","Plato"],
+             name ="Cocina"
              )
-        pd.DataFrame ({"Unidades"})
-        self.df["valor"] =self.df["valor"].astype(object)
         self.df.loc[2,"valor"] = f"{utensilios}"
         print("Completo el punto 3 : ok")
 
-   
-
-    #def punto_4(self):
+       #def punto_4(self):
        # self.df.loc[3,"resultado"] = f"{array_10x10}, {suma}"
+        #print("Completo el punto 4 : ok")
+
+    def punto_4(self):
+        dataset_name = 'zynicide/wine-reviews'
+        download_path = "."
+        download_kaggle_dataset(dataset_name, path=download_path, force=True)
+        reviews = pd.read_csv('wine-reviews.zip', compression='zip')
+        print(reviews.head())
+        self.df.loc[3,"valor"] = f"{reviews}"
+        print("Completo el punto 4 : ok")
+
+        print(dir(kagglehub))
+       
+        #kagglehub.dataset_download("zynicide/wine-reviews")
+
+        #self.df.loc[3,"resultado"] = f"{array_10x10}, {suma}"
         #print("Completo el punto 4 : ok")
 
     #def punto_5(self):
         #self.df.loc[4,"resultado"] = f"{array_10x10}, {suma}"
         #print("Completo el punto 5 : ok")
 
-    #def punto_6(self):
-        #self.df.loc[5,"resultado"] = f"{array_10x10}, {suma}"
-        #print("Completo el punto 6 : ok")
-
     def ejecutar (self):
         #self.punto_1()
         #self.punto_2()
-        self.punto_3()
+        #self.punto_3()
         #self.punto_4()
         #self.punto_5()
         #self.punto_6()
