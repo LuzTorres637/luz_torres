@@ -31,10 +31,12 @@ jobs:
         run: python src/pad_2025/Entrega_actividad_1.py
       - name: paso6 - Ejecucion actividad 2
         run: python src/pad_2025/actividad_final_2/actividad_final_2.py
+      - name: paso7 - Ejecucion actividad 3
+        run: python src/pad_2025/actividad_final_3/actividad_final_3.py
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: actividad_final_2
+          commit_message: actividad_final_3
           commit_user_name: Luz Andrea Torres Usme [GitHub Actions]
           commit_user_email: luz.torres@est.iudigital.edu.co
           commit_author: Luz Andrea Torres Usme <luz.torres@est.iudigital.edu.co>

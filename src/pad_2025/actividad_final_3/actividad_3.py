@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
+import io
 # from kagglehub import KaggleHub
 
 
@@ -53,7 +54,7 @@ class Actividad_3:
         self.df.loc[2,"valor"] = f"{utensilios}"
         print("Completo el punto 3 : ok")
 
-#PUNTO_4
+#Descarga del archivo del Punto_4
     def download_dataset_zip(self):
         print("Descargando dataset desde Kaggle...")
         df = pd.read_csv(self.ruta_dataset)
@@ -70,37 +71,46 @@ class Actividad_3:
     
     def punto_5(self):
         df = self.download_dataset_zip()
-        df.to_csv("df")
-        primeras_filas = self.reviews.head()
+        primeras_filas = df.head()
         resultado = f"{primeras_filas}" 
         self.df.loc[4,"valor"] = f"{resultado}"
         print("Completo el punto 5 : ok")
         
     def punto_6(self): 
-        entrada = df.info()
-        resultado = f"{entrada}" 
+        df = self.download_dataset_zip()
+        buffer = io.StringIO()
+        df.info(buf=buffer)
+        entrada = buffer.getvalue()
+        num_entries_line = [line for line in entrada.splitlines() if "RangeIndex" in line][0]
+        num_entries = int(num_entries_line.split(":")[1].strip().split(" ")[0])
+        resultado = f"{entrada}\nNúmero de entradas encontradas: {num_entries}"
         self.df.loc[5,"valor"] = f"{resultado}"
         print("Completo el punto 6 : ok")
-
+        return num_entries
+      
     def punto_7(self): 
+        df = self.download_dataset_zip()
         precio_promedio = df["price"].mean()
         resultado = f"{precio_promedio}" 
         self.df.loc[6,"valor"] = f"{resultado}"
         print("Completo el punto 7 : ok")
 
     def punto_8(self): 
+        df = self.download_dataset_zip()
         precio_maximo = df["price"].max()
         resultado = f"{precio_maximo}" 
         self.df.loc[7,"valor"] = f"{resultado}"
         print("Completo el punto 8 : ok")
 
-    def punto_9(self): 
+    def punto_9(self):
+        df = self.download_dataset_zip() 
         vinos_california = df[df["province"] == "California"].copy()
         resultado = f"{vinos_california}" 
         self.df.loc[8,"valor"] = f"{resultado}"
         print("Completo el punto 9 : ok")
 
     def punto_10(self): 
+        df = self.download_dataset_zip()
         vinos_california = df[df["province"] == "California"]
         indice_max_precio_california = vinos_california["price"].idxmax()
         vino_mas_caro_california = vinos_california.loc[indice_max_precio_california]
@@ -109,24 +119,26 @@ class Actividad_3:
         print("Completo el punto 10 : ok")
 
     def punto_11(self): 
+        df = self.download_dataset_zip()
         vinos_california = df[df["province"] == "California"].copy()
         conteo_variedades = vinos_california["variety"].value_counts() 
         self.df.loc[10,"valor"] = f"{conteo_variedades}"
         print("Completo el punto 11 : ok")
 
     def punto_12(self): 
-            vinos_california = df[df["province"] == "California"].copy()
-            conteo_variedades = vinos_california["variety"].value_counts() 
-            top_10_variedades = conteo_variedades.head(10)
-            self.df.loc[11,"valor"] = f"{top_10_variedades}"
-            print("Completo el punto 12 : ok")
+        df = self.download_dataset_zip()   
+        vinos_california = df[df["province"] == "California"].copy()
+        conteo_variedades = vinos_california["variety"].value_counts() 
+        top_10_variedades = conteo_variedades.head(10)
+        self.df.loc[11,"valor"] = f"{top_10_variedades}"
+        print("Completo el punto 12 : ok")
 
 
     def ejecutar (self):
             #self.punto_1()
             #self.punto_2()
             #self.punto_3()
-            self.punto_4()
+            #self.punto_4()
             #self.punto_5()
             #self.punto_6()
             #self.punto_7()

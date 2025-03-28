@@ -1,27 +1,24 @@
 # ejercicio,valor
-1,0
-2,0
-3,0
-4,"        Unnamed: 0  country  ...         variety                                    winery
-129966      129966  Germany  ...        Riesling  Dr. H. Thanisch (Erben Müller-Burggraef)
-129967      129967       US  ...      Pinot Noir                                  Citation
-129968      129968   France  ...  Gewürztraminer                           Domaine Gresser
-129969      129969   France  ...      Pinot Gris                      Domaine Marcel Deiss
-129970      129970   France  ...  Gewürztraminer                          Domaine Schoffit
-
-[5 rows x 14 columns]
-        Unnamed: 0  country  ...         variety                                    winery
-129966      129966  Germany  ...        Riesling  Dr. H. Thanisch (Erben Müller-Burggraef)
-129967      129967       US  ...      Pinot Noir                                  Citation
-129968      129968   France  ...  Gewürztraminer                           Domaine Gresser
-129969      129969   France  ...      Pinot Gris                      Domaine Marcel Deiss
-129970      129970   France  ...  Gewürztraminer                          Domaine Schoffit
-
-[5 rows x 14 columns]"
-5,0
-6,0
-7,0
-8,0
-9,0
-10,0
-11,0
+1.0,0.0
+2.0,0.0
+3.0,0.0
+4.0,0.0
+5.0,0.0
+6.0,0.0
+7.0,0.0
+8.0,0.0
+9.0,0.0
+10.0,0.0
+11.0,0.0
+,"variety
+Pinot Noir                  6896
+Cabernet Sauvignon          5693
+Chardonnay                  5183
+Zinfandel                   2639
+Syrah                       1870
+Sauvignon Blanc             1807
+Red Blend                   1804
+Merlot                      1391
+Bordeaux-style Red Blend     876
+Petite Sirah                 694
+Name: count, dtype: int64"
