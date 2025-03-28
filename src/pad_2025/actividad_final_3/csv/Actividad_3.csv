@@ -1,30 +1,118 @@
 # ejercicio,valor
-1,0
-2,0
-3,0
+1,"   Granadilla  Tomates
+0          20       50"
+2,"            Granadilla  Tomates
+ventas2021          20       50
+ventas2022          49      100"
+3,"Cuchara     3 unidades
+Tenedor     2 unidades
+Cuchillo    4 unidades
+Plato       5 unidades
+Name: Cocina, dtype: object"
 4,"Primeras filas:
-   Unnamed: 0  ...               winery
-0           0  ...              Nicosia
-1           1  ...  Quinta dos Avidagos
-2           2  ...            Rainstorm
-3           3  ...           St. Julian
-4           4  ...         Sweet Cheeks
+   Unnamed: 0   country  ...         variety               winery
+0           0     Italy  ...     White Blend              Nicosia
+1           1  Portugal  ...  Portuguese Red  Quinta dos Avidagos
+2           2        US  ...      Pinot Gris            Rainstorm
+3           3        US  ...        Riesling           St. Julian
+4           4        US  ...      Pinot Noir         Sweet Cheeks
 
 [5 rows x 14 columns]
 
 Últimas filas:
-        Unnamed: 0  ...                                    winery
-129966      129966  ...  Dr. H. Thanisch (Erben Müller-Burggraef)
-129967      129967  ...                                  Citation
-129968      129968  ...                           Domaine Gresser
-129969      129969  ...                      Domaine Marcel Deiss
-129970      129970  ...                          Domaine Schoffit
+        Unnamed: 0  country  ...         variety                                    winery
+129966      129966  Germany  ...        Riesling  Dr. H. Thanisch (Erben Müller-Burggraef)
+129967      129967       US  ...      Pinot Noir                                  Citation
+129968      129968   France  ...  Gewürztraminer                           Domaine Gresser
+129969      129969   France  ...      Pinot Gris                      Domaine Marcel Deiss
+129970      129970   France  ...  Gewürztraminer                          Domaine Schoffit
 
 [5 rows x 14 columns]"
-5,0
-6,0
-7,0
-8,0
-9,0
-10,0
-11,0
+5,"   Unnamed: 0   country  ...         variety               winery
+0           0     Italy  ...     White Blend              Nicosia
+1           1  Portugal  ...  Portuguese Red  Quinta dos Avidagos
+2           2        US  ...      Pinot Gris            Rainstorm
+3           3        US  ...        Riesling           St. Julian
+4           4        US  ...      Pinot Noir         Sweet Cheeks
+
+[5 rows x 14 columns]"
+6,"<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 129971 entries, 0 to 129970
+Data columns (total 14 columns):
+ #   Column                 Non-Null Count   Dtype  
+---  ------                 --------------   -----  
+ 0   Unnamed: 0             129971 non-null  int64  
+ 1   country                129908 non-null  object 
+ 2   description            129971 non-null  object 
+ 3   designation            92506 non-null   object 
+ 4   points                 129971 non-null  int64  
+ 5   price                  120975 non-null  float64
+ 6   province               129908 non-null  object 
+ 7   region_1               108724 non-null  object 
+ 8   region_2               50511 non-null   object 
+ 9   taster_name            103727 non-null  object 
+ 10  taster_twitter_handle  98758 non-null   object 
+ 11  title                  129971 non-null  object 
+ 12  variety                129970 non-null  object 
+ 13  winery                 129971 non-null  object 
+dtypes: float64(1), int64(2), object(11)
+memory usage: 13.9+ MB
+
+Número de entradas encontradas: 129971"
+7,35.363389129985535
+8,3300.0
+9,"        Unnamed: 0 country  ...             variety               winery
+10              10      US  ...  Cabernet Sauvignon   Kirkland Signature
+12              12      US  ...  Cabernet Sauvignon     Louis M. Martini
+14              14      US  ...          Chardonnay             Mirassou
+23              23      US  ...              Merlot              Bianchi
+25              25      US  ...          Pinot Noir  Castello di Amorosa
+...            ...     ...  ...                 ...                  ...
+129942      129942      US  ...  Cabernet Sauvignon             Arrowood
+129945      129945      US  ...        Chenin Blanc            Birichino
+129949      129949      US  ...          Chardonnay        Flora Springs
+129950      129950      US  ...           Zinfandel               Hendry
+129952      129952      US  ...           Zinfandel              Houdini
+
+[36247 rows x 14 columns]"
+10,"120391
+Unnamed: 0                                                          120391
+country                                                                 US
+description              The nose on this single-vineyard wine from a s...
+designation                                            Roger Rose Vineyard
+points                                                                  91
+price                                                               2013.0
+province                                                        California
+region_1                                                       Arroyo Seco
+region_2                                                     Central Coast
+taster_name                                                  Matt Kettmann
+taster_twitter_handle                                        @mattkettmann
+title                    Blair 2013 Roger Rose Vineyard Chardonnay (Arr...
+variety                                                         Chardonnay
+winery                                                               Blair
+Name: 120391, dtype: object"
+11,"variety
+Pinot Noir             6896
+Cabernet Sauvignon     5693
+Chardonnay             5183
+Zinfandel              2639
+Syrah                  1870
+                       ... 
+Prosecco                  1
+Tannat-Syrah              1
+Rosado                    1
+Muscat d'Alexandrie       1
+Alvarinho                 1
+Name: count, Length: 194, dtype: int64"
+12,"variety
+Pinot Noir                  6896
+Cabernet Sauvignon          5693
+Chardonnay                  5183
+Zinfandel                   2639
+Syrah                       1870
+Sauvignon Blanc             1807
+Red Blend                   1804
+Merlot                      1391
+Bordeaux-style Red Blend     876
+Petite Sirah                 694
+Name: count, dtype: int64"

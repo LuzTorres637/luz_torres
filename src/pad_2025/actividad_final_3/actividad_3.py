@@ -21,10 +21,11 @@ class Actividad_3:
         print(self.ruta_actual) 
         
         datos = {
-            "# ejercicio": list(range(1, 12)),
-            "valor": [x*0 for x in range(1, 12)]
+            "# ejercicio": list(range(1, 13)),
+            "valor": [x*0 for x in range(1, 13)]
         }
         self.df = pd.DataFrame(data=datos,columns=["# ejercicio", "valor"])
+
 
     def punto_1(self):
         frutas = pd.DataFrame ({
@@ -139,18 +140,18 @@ class Actividad_3:
 
 
     def ejecutar (self):
-            #self.punto_1()
-            #self.punto_2()
-            #self.punto_3()
+            self.punto_1()
+            self.punto_2()
+            self.punto_3()
             self.punto_4()
-            #self.punto_5()
-            #self.punto_6()
-            #self.punto_7()
-            #self.punto_8()
-            #self.punto_9()
-            #self.punto_10()
-            #self.punto_11()
-            #self.punto_12()
+            self.punto_5()
+            self.punto_6()
+            self.punto_7()
+            self.punto_8()
+            self.punto_9()
+            self.punto_10()
+            self.punto_11()
+            self.punto_12()
             self.df.to_csv("{}Actividad_3.csv".format(self.ruta_csv), index=False)
 
 ene = Actividad_3()
