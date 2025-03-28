@@ -54,7 +54,7 @@ class Actividad_3:
         self.df.loc[2,"valor"] = f"{utensilios}"
         print("Completo el punto 3 : ok")
 
-#Descarga del archivo del Punto_4
+#Descarga del dataset del Punto_4
     def download_dataset_zip(self):
         print("Descargando dataset desde Kaggle...")
         df = pd.read_csv(self.ruta_dataset)
@@ -62,13 +62,17 @@ class Actividad_3:
 
     def punto_4(self):
         df = self.download_dataset_zip()
-        df_cop = df.head()
-        df_cop = df.tail()
-        resultado = f"{df_cop}\n{df_cop}" 
+        primeras_filas = df.head()
+        ultimas_filas = df.tail()
+        resultado = f"Primeras filas:\n{primeras_filas}\n\nÚltimas filas:\n{ultimas_filas}"
         self.df.loc[3,"valor"] = f"{resultado}"
-        print("Completo el punto 5 : ok")
-        #review = pd.read_csv('winemag-data-130k-v2.csv')
-    
+        try:
+            df = pd.read_csv(self.ruta_dataset)
+        except FileNotFoundError:
+            print(f"Error: El archivo CSV no se encontró en la ruta: {self.ruta_dataset}")
+        return None            
+    print("Completo el punto 4 : ok")   
+
     def punto_5(self):
         df = self.download_dataset_zip()
         primeras_filas = df.head()
@@ -138,7 +142,7 @@ class Actividad_3:
             #self.punto_1()
             #self.punto_2()
             #self.punto_3()
-            #self.punto_4()
+            self.punto_4()
             #self.punto_5()
             #self.punto_6()
             #self.punto_7()
