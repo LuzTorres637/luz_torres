@@ -146,7 +146,7 @@ def punto_12(self):
         #self.punto_9()
         #self.punto_10()
         #self.punto_11()
-        #self.punto_12()
+        self.punto_12()
         self.df.to_csv("{}Actividad_3.csv".format(self.ruta_csv), index=False)
 
 ene = Actividad_3()
