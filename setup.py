@@ -12,8 +12,8 @@ setup(
         "requests",
         "openpyxl",
         "seaborn",
-        "kagglehub",
-          "numpy",
+        "kagglehub[pandas-datasets]>=0.3.8",
+        "numpy",
         "pathlib",
         "matplotlib"
     ]
