@@ -4,7 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
-from kagglehub import KaggleHub
+# from kagglehub import KaggleHub
 
 
 class Actividad_3:
@@ -16,6 +16,7 @@ class Actividad_3:
         if not os.path.exists(self.ruta_actual):
                 os.makedirs(directorio, exists_ok=True) 
         self.ruta_csv = "{}csv/".format(self.ruta_actividad_final_3)
+        self.ruta_dataset = "{}Dataset/{}".format(self.ruta_actividad_final_3,"winemag-data-130k-v2.csv")
         print(self.ruta_actual) 
         
         datos = {
@@ -55,34 +56,21 @@ class Actividad_3:
 #PUNTO_4
     def download_dataset_zip(self):
         print("Descargando dataset desde Kaggle...")
-        dataset_path = kagglehub.dataset_download("zynicide/wine-reviews")
-        print("Ruta al dataset:", dataset_path)
-        return dataset_path
-    
-    Actividad_3 = Actividad_3()          
-    dataset_path = Actividad_3.download_dataset_zip()
-    csv_dir = Actividad_3.extract_zip_files(dataset_path)
-    df = Actividad_3.create_csv(csv_dir)
-    print(df.describe(),df.count,df.info())
-    df.to_csv("dataset_kaggle.csv")
+        df = pd.read_csv(self.ruta_dataset)
+        return df
 
     def punto_4(self):
-        if not self.reviews.empty:
-            primeras_filas = self.reviews.head()
-            ultimas_filas = self.reviews.tail()
-            resultado = f"{primeras_filas}\n{ultimas_filas}"
-        
-            self.df.loc[3,"valor"] = self.convertir_a_texto(resultado)
-            #self.df.loc[3,"detalle"] = "primeras y ultimas filas del Dataframe"
-        else:
-            self.df.loc[3,"valor"] = "Dataset no cargado"
-            #self.df.loc[3,"detalle"] "Dataset no cargado"
-        print("Completo el punto 4 : ok")
+        df = self.download_dataset_zip()
+        df_cop = df.head()
+        df_cop = df.tail()
+        resultado = f"{df_cop}\n{df_cop}" 
+        self.df.loc[3,"valor"] = f"{resultado}"
+        print("Completo el punto 5 : ok")
+        #review = pd.read_csv('winemag-data-130k-v2.csv')
     
-
     def punto_5(self):
-        df = pd.read_csv("dataset_kaggle.csv")
-        df.to_csv("dataset_kaggle.csv")
+        df = self.download_dataset_zip()
+        df.to_csv("df")
         primeras_filas = self.reviews.head()
         resultado = f"{primeras_filas}" 
         self.df.loc[4,"valor"] = f"{resultado}"
@@ -126,28 +114,28 @@ class Actividad_3:
         self.df.loc[10,"valor"] = f"{conteo_variedades}"
         print("Completo el punto 11 : ok")
 
-def punto_12(self): 
-        vinos_california = df[df["province"] == "California"].copy()
-        conteo_variedades = vinos_california["variety"].value_counts() 
-        top_10_variedades = conteo_variedades.head(10)
-        self.df.loc[11,"valor"] = f"{top_10_variedades}"
-        print("Completo el punto 12 : ok")
+    def punto_12(self): 
+            vinos_california = df[df["province"] == "California"].copy()
+            conteo_variedades = vinos_california["variety"].value_counts() 
+            top_10_variedades = conteo_variedades.head(10)
+            self.df.loc[11,"valor"] = f"{top_10_variedades}"
+            print("Completo el punto 12 : ok")
 
 
     def ejecutar (self):
-        #self.punto_1()
-        #self.punto_2()
-        #self.punto_3()
-        #self.punto_4()
-        #self.punto_5()
-        #self.punto_6()
-        #self.punto_7()
-        #self.punto_8()
-        #self.punto_9()
-        #self.punto_10()
-        #self.punto_11()
-        self.punto_12()
-        self.df.to_csv("{}Actividad_3.csv".format(self.ruta_csv), index=False)
+            #self.punto_1()
+            #self.punto_2()
+            #self.punto_3()
+            self.punto_4()
+            #self.punto_5()
+            #self.punto_6()
+            #self.punto_7()
+            #self.punto_8()
+            #self.punto_9()
+            #self.punto_10()
+            #self.punto_11()
+            #self.punto_12()
+            self.df.to_csv("{}Actividad_3.csv".format(self.ruta_csv), index=False)
 
 ene = Actividad_3()
 ene.ejecutar()

@@ -1,12 +1,23 @@
 # ejercicio,valor
 1,0
 2,0
-3,"Cuchara     3 unidades
-Tenedor     2 unidades
-Cuchillo    4 unidades
-Plato       5 unidades
-Name: Cocina, dtype: object"
-4,0
+3,0
+4,"        Unnamed: 0  country  ...         variety                                    winery
+129966      129966  Germany  ...        Riesling  Dr. H. Thanisch (Erben Müller-Burggraef)
+129967      129967       US  ...      Pinot Noir                                  Citation
+129968      129968   France  ...  Gewürztraminer                           Domaine Gresser
+129969      129969   France  ...      Pinot Gris                      Domaine Marcel Deiss
+129970      129970   France  ...  Gewürztraminer                          Domaine Schoffit
+
+[5 rows x 14 columns]
+        Unnamed: 0  country  ...         variety                                    winery
+129966      129966  Germany  ...        Riesling  Dr. H. Thanisch (Erben Müller-Burggraef)
+129967      129967       US  ...      Pinot Noir                                  Citation
+129968      129968   France  ...  Gewürztraminer                           Domaine Gresser
+129969      129969   France  ...      Pinot Gris                      Domaine Marcel Deiss
+129970      129970   France  ...  Gewürztraminer                          Domaine Schoffit
+
+[5 rows x 14 columns]"
 5,0
 6,0
 7,0
