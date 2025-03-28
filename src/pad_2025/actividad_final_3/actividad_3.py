@@ -54,35 +54,28 @@ class Actividad_3:
         self.df.loc[2,"valor"] = f"{utensilios}"
         print("Completo el punto 3 : ok")
 
-       #def punto_4(self):
-       # self.df.loc[3,"resultado"] = f"{array_10x10}, {suma}"
-        #print("Completo el punto 4 : ok")
-
     def punto_4(self):
-        dataset_name = 'zynicide/wine-reviews'
-        download_path = "."
-        download_kaggle_dataset(dataset_name, path=download_path, force=True)
-        reviews = pd.read_csv('wine-reviews.zip', compression='zip')
-        print(reviews.head())
-        self.df.loc[3,"valor"] = f"{reviews}"
+        if not self.reviews.empty:
+            primeras_filas = self.reviews.head()
+            ultimas_filas = self.reviews.tail()
+            resultado = f"{primeras_filas}\n{ultimas_filas}"
+        
+            self.df.loc[3,"valor"] = self.convertir_a_texto(resultado)
+            #self.df.loc[3,"detalle"] = "primeras y ultimas filas del Dataframe"
+        else
+            self.df.loc[3,"valor"] = "Dataset no cargado"
+            #self.df.loc[3,"detalle"] "Dataset no cargado"
         print("Completo el punto 4 : ok")
 
-        print(dir(kagglehub))
-       
-        #kagglehub.dataset_download("zynicide/wine-reviews")
-
-        #self.df.loc[3,"resultado"] = f"{array_10x10}, {suma}"
-        #print("Completo el punto 4 : ok")
-
-    #def punto_5(self):
-        #self.df.loc[4,"resultado"] = f"{array_10x10}, {suma}"
-        #print("Completo el punto 5 : ok")
+        
+      
+      
 
     def ejecutar (self):
         #self.punto_1()
         #self.punto_2()
         #self.punto_3()
-        #self.punto_4()
+        self.punto_4()
         #self.punto_5()
         #self.punto_6()
         #self.punto_7()
